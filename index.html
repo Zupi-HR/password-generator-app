@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Password generator app</title>
+</head>
+
+<body>
+
+  <main class="container">
+    <h1 class="main-title">Password Generator</h1>
+    <form id="password-generator-form" class="generator-form">
+      <div class="password-display">
+        <output id="password-output">P4$5W0rD!</output>
+        <button id="copy-button" class="copy-btn"><img src="assets/images/icon-copy.svg" alt="copy password"></button>
+      </div>
+      <fieldset class="generator-options">
+        <div class="option-group length-control">
+          <label for="passLength">Character Length</label>
+          <output id="length-display" class="length-value"></output>
+          <input type="range" id="passLength" min="0" max="20" step="1">
+        </div>
+        <ul class="checkbox-group">
+          <li class="option">
+            <label for="uppercase" class="checkbox-label">
+              <input type="checkbox" name="uppercase" id="uppercase" class="checkbox-input">
+              Include Uppercase Letters
+            </label>
+          </li>
+          <li class="option">
+            <label for="lowercase" class="checkbox-label">
+              <input type="checkbox" name="lowercase" id="lowercase" class="checkbox-input">
+              Include Lowercase Letters
+            </label>
+          </li>
+          <li class="option">
+            <label for="numbers" class="checkbox-label">
+              <input type="checkbox" name="numbers" id="numbers" class="checkbox-input">
+              Include Numbers
+            </label>
+          </li>
+          <li class="option">
+            <label for="symbols" class="checkbox-label">
+              <input type="checkbox" name="symbols" id="symbols" class="checkbox-input">
+              Include Symbols
+            </label>
+          </li>
+        </ul>
+        <div class="strength-indicator">
+          <p class="strength-label">Strength</p>
+          <div class="strength-display">
+            <span id="strength-text" class="strength-level-text"></span>
+            <meter id="strength-meter" class="strength-meter-visual" min="0" max="4" low="2" high="3" optimum="4"
+              value="0"></meter>
+          </div>
+        </div>
+        <button type="submit" id="generate-button" class="generate-btn">Generate</button>
+      </fieldset>
+    </form>
+  </main>
+
+</body>
+
+</html>
