@@ -20,9 +20,10 @@
         <button id="copy-button" class="copy-btn"><img src="assets/images/icon-copy.svg" alt="copy password"></button>
       </div>
       <fieldset class="generator-options">
+        <fieldset class="sr-only">Password Generation Options</fieldset>
         <div class="option-group length-control">
           <label for="passLength">Character Length</label>
-          <output id="length-display" class="length-value"></output>
+          <output id="length-display" class="length-value">0</output>
           <input type="range" id="passLength" min="0" max="20" step="1">
         </div>
         <ul class="checkbox-group">
