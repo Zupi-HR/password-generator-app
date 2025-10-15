@@ -1,0 +1,84 @@
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('assets/fonts/JetBrainsMono-VariableFont_wght.ttf') format('truetype-variations');
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+:root {
+    /* --- Colors --- */
+
+    /* White & Black */
+    --color-white: #ffffff;
+    --color-black: #000000;
+
+    /* Greys */
+    --color-grey-950: #08070b;
+    --color-grey-900: #14131b;
+    --color-grey-850: #18171f;
+    --color-grey-800: #24232c;
+    --color-grey-700: #54535b;
+    --color-grey-600: #817d92;
+    --color-grey-200: #e6e5ea;
+
+    /* Accent Colors */
+    --color-green-200: #a4ffaf;
+    --color-yellow-300: #f8cd65;
+    --color-orange-400: #fb7c58;
+    --color-red-500: #f64a4a;
+
+    /* --- Gradients --- */
+    /* Note: The Figma data for Gradient 1 uses Grey 900 and Grey 950. */
+    --gradient-1: linear-gradient(to right, #14131b, #08070b);
+
+    /* --- Typography --- */
+    --font-family-main: 'JetBrains Mono', monospace;
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
+
+    /* Font Sizes (Heading) */
+    --fs-heading-l: 2rem;
+    /* 32px */
+    --fs-heading-m: 1.5rem;
+    /* 24px */
+
+    /* Font Sizes (Body) */
+    --fs-body-l: 1.125rem;
+    /* 18px */
+    --fs-body-m: 1rem;
+    /* 16px */
+
+    /* Line Heights */
+    --lh-heading-l: 2.625rem;
+    /* 42px */
+    --lh-heading-m: 2rem;
+    /* 32px */
+    --lh-body-l: 1.5rem;
+    /* 24px */
+    --lh-body-m: 1.25rem;
+    /* 20px */
+
+    /* --- Spacing --- */
+    --spacing-100: 0.5rem;
+    /* 8px */
+    --spacing-200: 1rem;
+    /* 16px */
+    --spacing-300: 1.5rem;
+    /* 24px */
+    --spacing-400: 2rem;
+    /* 32px */
+    --spacing-700: 3.5rem;
+    /* 56px */
+    --spacing-1000: 5rem;
+    /* 80px */
+    --spacing-1300: 6.5rem;
+    /* 104px */
+    --spacing-1600: 8rem;
+    /* 128px */
+    --spacing-2000: 10rem;
+    /* 160px */
+    --spacing-2200: 11rem;
+    /* 176px */
+    --spacing-2300: 11.5rem;
+    /* 184px */
+}
