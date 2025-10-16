@@ -259,14 +259,19 @@ body {
     outline: none;
 }
 
+.option {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-200);
+}
+
+.checkbox-label {
+    cursor: pointer;
+}
+
 .checkbox-input {
     display: inline-block;
     accent-color: var(--color-green-200);
     width: 20px;
     height: 20px;
-}
-
-.option {
-    display: flex;
-    align-items: center;
 }
