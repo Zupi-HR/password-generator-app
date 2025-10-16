@@ -20,34 +20,33 @@
         <button id="copy-button" class="copy-btn"><img src="assets/images/icon-copy.svg" alt="copy password"></button>
       </div>
       <fieldset class="generator-options">
-        <fieldset class="sr-only">Password Generation Options</fieldset>
+        <legend class="sr-only">Password Generation Options</legend>
         <div class="option-group length-control">
           <label for="passLength">Character Length</label>
-          <output id="length-display" class="length-value">0</output>
+          <output for="passLength" id="length-display" class="length-value">0</output>
           <input type="range" id="passLength" min="0" max="20" step="1">
         </div>
         <ul class="checkbox-group">
           <li class="option">
+            <input type="checkbox" name="uppercase" id="uppercase" class="checkbox-input">
             <label for="uppercase" class="checkbox-label">
-              <input type="checkbox" name="uppercase" id="uppercase" class="checkbox-input">
-              Include Uppercase Letters
-            </label>
+              Include Uppercase Letters</label>
           </li>
           <li class="option">
+            <input type="checkbox" name="lowercase" id="lowercase" class="checkbox-input">
             <label for="lowercase" class="checkbox-label">
-              <input type="checkbox" name="lowercase" id="lowercase" class="checkbox-input">
               Include Lowercase Letters
             </label>
           </li>
           <li class="option">
+            <input type="checkbox" name="numbers" id="numbers" class="checkbox-input">
             <label for="numbers" class="checkbox-label">
-              <input type="checkbox" name="numbers" id="numbers" class="checkbox-input">
               Include Numbers
             </label>
           </li>
           <li class="option">
+            <input type="checkbox" name="symbols" id="symbols" class="checkbox-input">
             <label for="symbols" class="checkbox-label">
-              <input type="checkbox" name="symbols" id="symbols" class="checkbox-input">
               Include Symbols
             </label>
           </li>
