@@ -259,6 +259,11 @@ body {
     outline: none;
 }
 
+.checkbox-group {
+    display: grid;
+    gap: var(--spacing-200);
+}
+
 .option {
     display: flex;
     align-items: center;
@@ -270,8 +275,28 @@ body {
 }
 
 .checkbox-input {
-    display: inline-block;
-    accent-color: var(--color-green-200);
+    appearance: none;
     width: 20px;
     height: 20px;
+    background-color: inherit;
+    border: 2px solid var(--color-grey-200);
+    cursor: pointer;
+    transition: border-color 150ms ease-in-out, background-color 150ms ease-in-out;
+}
+
+.checkbox-input:hover {
+    border-color: var(--color-green-200);
+}
+
+.checkbox-input:focus-visible {
+    outline: 2px solid var(--color-green-200);
+    outline-offset: 2px;
+}
+
+.checkbox-input:checked {
+    background-color: var(--color-green-200);
+    border-color: var(--color-green-200);
+    background-image: url(assets/images/icon-check.svg);
+    background-repeat: no-repeat;
+    background-position: center;
 }
