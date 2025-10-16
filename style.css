@@ -235,23 +235,31 @@ body {
     margin-top: calc((var(--spacing-100) - 28px) / 2);
 }
 
-#passLength:focus::-webkit-slider-thumb,
+#passLength:active::-webkit-slider-thumb,
 #passLength:hover::-webkit-slider-thumb {
     background-color: var(--color-grey-950);
     outline: 2px solid var(--color-green-200);
 }
 
+#passLength:focus-visible::-webkit-slider-thumb {
+    outline: 2px solid var(--color-green-200);
+}
+
 #passLength::-moz-range-thumb {
-    border: 0;
+    border: none;
     border-radius: 50%;
     background-color: var(--color-grey-200);
     width: 28px;
     height: 28px;
 }
 
-#passLength::-moz-range-thumb:focus,
-#passLength::-moz-range-thumb:hover {
+#passLength:active::-moz-range-thumb,
+#passLength:hover::-moz-range-thumb {
     background-color: var(--color-grey-950);
+    outline: 2px solid var(--color-green-200);
+}
+
+#passLength:focus-visible::-moz-range-thumb {
     outline: 2px solid var(--color-green-200);
 }
 
