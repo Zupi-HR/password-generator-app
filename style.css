@@ -147,6 +147,9 @@ body {
 .container {
     display: grid;
     gap: var(--spacing-200);
+    width: 100%;
+    max-width: 540px;
+    padding: 0 var(--spacing-200);
 }
 
 .main-title {
@@ -307,4 +310,79 @@ body {
     background-image: url(assets/images/icon-check.svg);
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.strength-indicator {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-grey-850);
+    padding: var(--spacing-200) var(--spacing-400);
+}
+
+.strength-label {
+    color: var(--color-grey-600);
+    font-weight: var(--font-weight-bold);
+}
+
+.strength-visual-indicator {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-200);
+}
+
+#strength-text {
+    font-size: var(--fs-body-l);
+    color: var(--color-grey-200);
+}
+
+.strength-bars {
+    display: flex;
+    gap: var(--spacing-100);
+}
+
+.strength-bar {
+    width: 10px;
+    height: 28px;
+    border: 2px solid var(--color-grey-200);
+}
+
+.strength-bars.too-weak .strength-bar:nth-child(-n + 1) {
+    background-color: var(--color-red-500);
+    border-color: var(--color-red-500);
+}
+
+.strength-bars.weak .strength-bar:nth-child(-n + 2) {
+    background-color: var(--color-orange-400);
+    border-color: var(--color-orange-400);
+}
+
+.strength-bars.medium .strength-bar:nth-child(-n + 3) {
+    background-color: var(--color-yellow-300);
+    border-color: var(--color-yellow-300);
+}
+
+.strength-bars.strong .strength-bar:nth-child(-n + 4) {
+    background-color: var(--color-green-200);
+    border-color: var(--color-green-200);
+}
+
+.generate-btn {
+    background-color: var(--color-green-200);
+    color: var(--color-grey-800);
+    border: 2px solid var(--color-green-200);
+    padding: var(--spacing-200) 0;
+    font-size: var(--fs-body-l);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-200);
+}
+
+.generate-btn:hover {
+    background-color: inherit;
+    color: var(--color-green-200);
 }

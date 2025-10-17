@@ -52,14 +52,21 @@
           </li>
         </ul>
         <div class="strength-indicator">
-          <p class="strength-label">Strength</p>
-          <div class="strength-display">
-            <span id="strength-text" class="strength-level-text"></span>
-            <meter id="strength-meter" class="strength-meter-visual" min="0" max="4" low="2" high="3" optimum="4"
-              value="0"></meter>
+          <p class="strength-label">STRENGTH</p>
+          <div class="strength-visual-indicator">
+            <span id="strength-text">MEDIUM</span>
+            <div class="strength-bars">
+              <span class="strength-bar"></span>
+              <span class="strength-bar"></span>
+              <span class="strength-bar"></span>
+              <span class="strength-bar"></span>
+            </div>
           </div>
         </div>
-        <button type="submit" id="generate-button" class="generate-btn">Generate</button>
+        <button type="submit" id="generate-button" class="generate-btn">
+          Generate
+          <img src="assets/images/icon-arrow-right.svg" alt="">
+        </button>
       </fieldset>
     </form>
   </main>
