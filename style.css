@@ -179,9 +179,23 @@ body {
     color: var(--color-grey-700);
 }
 
+.copy-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-200);
+}
+
+.copy-msg {
+    color: var(--color-green-200);
+    font-weight: var(--font-weight-bold);
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+}
+
 .copy-btn {
     background-color: inherit;
     border: none;
+    cursor: pointer;
 }
 
 .generator-options {
@@ -382,7 +396,13 @@ body {
     gap: var(--spacing-200);
 }
 
-.generate-btn:hover {
+.generate-btn:hover,
+.generate-btn:focus-visible {
     background-color: inherit;
     color: var(--color-green-200);
+}
+
+.generate-btn:focus-visible {
+    outline: 2px solid var(--color-green-200);
+    outline-offset: 2px;
 }

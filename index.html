@@ -17,7 +17,11 @@
     <form id="password-generator-form" class="generator-form">
       <div class="password-display">
         <output id="password-output">P4$5W0rD!</output>
-        <button id="copy-button" class="copy-btn"><img src="assets/images/icon-copy.svg" alt="copy password"></button>
+        <div class="copy-wrapper">
+          <span id="copy-message" class="copy-msg">COPIED</span>
+          <button type="button" id="copy-button" class="copy-btn"><img src="assets/images/icon-copy.svg"
+              alt="copy password"></button>
+        </div>
       </div>
       <fieldset class="generator-options">
         <legend class="sr-only">Password Generation Options</legend>
