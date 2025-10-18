@@ -30,11 +30,17 @@ function generatePassword() {
     ".checkbox-input:checked"
   );
   if (checkedCheckboxes.length > 0) {
-    checkedCheckboxes.forEach(
-      (checkbox) => (allowedChars += CHAR_SETS[checkbox.name])
-    );
+    checkedCheckboxes.forEach((checkbox) => {
+      allowedChars += CHAR_SETS[checkbox.name];
+      const randomIndex = Math.floor(
+        Math.random() * CHAR_SETS[checkbox.name].length
+      );
+      generatedPassword += CHAR_SETS[checkbox.name].at(randomIndex);
+    });
     const passwordLength = passwordLengthInput.valueAsNumber;
-    for (let index = 0; index < passwordLength; index++) {
+    const remainingLength = passwordLength - generatedPassword.length;
+
+    for (let index = 0; index < remainingLength; index++) {
       const randomIndex = Math.floor(Math.random() * allowedChars.length);
       generatedPassword += allowedChars[randomIndex];
     }
