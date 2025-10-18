@@ -45,7 +45,16 @@ function generatePassword() {
       generatedPassword += allowedChars[randomIndex];
     }
   }
-  return generatedPassword;
+  console.log("old", generatedPassword);
+  let charArray = generatedPassword.split("");
+  const randomizedPassword = [];
+  while (charArray.length > 0) {
+    const randomIndex = Math.floor(Math.random() * charArray.length);
+    const randomChar = charArray.splice(randomIndex, 1)[0];
+    randomizedPassword.push(randomChar);
+  }
+  console.log(randomizedPassword.join(""));
+  return randomizedPassword.join("");
 }
 
 generatorForm.addEventListener("submit", (e) => {
