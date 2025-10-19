@@ -23,38 +23,51 @@ const CHAR_SETS = {
   symbols: "!@#$%^&*()_+-=[]{}|;:,.<>?",
 };
 
+function shuffleString(string) {
+  let charArray = string.split("");
+  for (let i = charArray.length; i > 0; i--) {
+    const randomIndex = Math.floor(Math.random() * i);
+    [charArray[randomIndex], charArray[i - 1]] = [
+      charArray[i - 1],
+      charArray[randomIndex],
+    ];
+  }
+  return charArray.join("");
+}
+
 function generatePassword() {
   let allowedChars = "";
   let generatedPassword = "";
+  const passwordLength = passwordLengthInput.valueAsNumber;
   const checkedCheckboxes = document.querySelectorAll(
     ".checkbox-input:checked"
   );
+
   if (checkedCheckboxes.length > 0) {
     checkedCheckboxes.forEach((checkbox) => {
       allowedChars += CHAR_SETS[checkbox.name];
+    });
+  } else {
+    return "";
+  }
+
+  if (passwordLength >= checkedCheckboxes.length) {
+    checkedCheckboxes.forEach((checkbox) => {
       const randomIndex = Math.floor(
         Math.random() * CHAR_SETS[checkbox.name].length
       );
       generatedPassword += CHAR_SETS[checkbox.name].at(randomIndex);
     });
-    const passwordLength = passwordLengthInput.valueAsNumber;
-    const remainingLength = passwordLength - generatedPassword.length;
+  }
 
-    for (let index = 0; index < remainingLength; index++) {
-      const randomIndex = Math.floor(Math.random() * allowedChars.length);
-      generatedPassword += allowedChars[randomIndex];
-    }
+  const remainingLength = passwordLength - generatedPassword.length;
+
+  for (let index = 0; index < remainingLength; index++) {
+    const randomIndex = Math.floor(Math.random() * allowedChars.length);
+    generatedPassword += allowedChars[randomIndex];
   }
-  console.log("old", generatedPassword);
-  let charArray = generatedPassword.split("");
-  const randomizedPassword = [];
-  while (charArray.length > 0) {
-    const randomIndex = Math.floor(Math.random() * charArray.length);
-    const randomChar = charArray.splice(randomIndex, 1)[0];
-    randomizedPassword.push(randomChar);
-  }
-  console.log(randomizedPassword.join(""));
-  return randomizedPassword.join("");
+  const shuffledPassword = shuffleString(generatedPassword);
+  return shuffledPassword;
 }
 
 generatorForm.addEventListener("submit", (e) => {
