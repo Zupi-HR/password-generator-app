@@ -46,22 +46,20 @@ function generatePassword() {
   if (checkedCheckboxes.length > 0) {
     checkedCheckboxes.forEach((checkbox) => {
       allowedChars += CHAR_SETS[checkbox.name];
-    });
-  } else {
-    return "";
-  }
-
-  if (passwordLength >= checkedCheckboxes.length) {
-    checkedCheckboxes.forEach((checkbox) => {
       const randomIndex = Math.floor(
         Math.random() * CHAR_SETS[checkbox.name].length
       );
       generatedPassword += CHAR_SETS[checkbox.name].at(randomIndex);
     });
+  } else {
+    return "";
+  }
+
+  if (generatedPassword.length > passwordLength) {
+    generatedPassword = generatedPassword.slice(0, passwordLength);
   }
 
   const remainingLength = passwordLength - generatedPassword.length;
-
   for (let index = 0; index < remainingLength; index++) {
     const randomIndex = Math.floor(Math.random() * allowedChars.length);
     generatedPassword += allowedChars[randomIndex];
