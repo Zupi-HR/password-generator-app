@@ -82,26 +82,37 @@ passwordLengthInput.addEventListener("input", () => {
   lengthDisplay.textContent = currentValue;
 });
 
-function calculatePasswordStrength() {
-  const lengthScore = passwordLengthInput.valueAsNumber * 2;
-  const complexityScore =
-    document.querySelectorAll(".checkbox-input:checked").length || 0;
-  const totalScore = lengthScore + complexityScore;
-  strengthBars.className = "strength-bars";
+const STRENGTH_LEVELS = {
+  strong: { score: 40, text: "STRONG", class: "strong" },
+  medium: { score: 30, text: "MEDIUM", class: "medium" },
+  weak: { score: 15, text: "WEAK", class: "weak" },
+  "too-weak": { score: 0, text: "TOO WEAK", class: "too-weak" },
+};
 
-  if (totalScore > 42) {
-    strengthBars.classList.add("strong");
-    strengthText.textContent = "strong";
-  } else if (totalScore > 28) {
-    strengthBars.classList.add("medium");
-    strengthText.textContent = "medium";
-  } else if (totalScore > 14) {
-    strengthBars.classList.add("weak");
-    strengthText.textContent = "weak";
-  } else {
-    strengthBars.classList.add("too-weak");
-    strengthText.textContent = "Too Weak";
+function calculatePasswordStrength() {
+  const passwordLength = passwordLengthInput.valueAsNumber;
+  const includedSetsCount = document.querySelectorAll(
+    ".checkbox-input:checked"
+  ).length;
+
+  const totalScore = passwordLength * 2 + includedSetsCount;
+  let currentStrength = STRENGTH_LEVELS["too-weak"];
+
+  if (totalScore >= STRENGTH_LEVELS.strong.score) {
+    currentStrength = STRENGTH_LEVELS.strong;
+  } else if (totalScore >= STRENGTH_LEVELS.medium.score) {
+    currentStrength = STRENGTH_LEVELS.medium;
+  } else if (totalScore >= STRENGTH_LEVELS.weak.score) {
+    currentStrength = STRENGTH_LEVELS.weak;
   }
+
+  Object.values(STRENGTH_LEVELS).forEach((level) =>
+    strengthBars.classList.remove(level.class)
+  );
+
+  strengthBars.classList.add(currentStrength.class);
+
+  strengthText.textContent = currentStrength.text;
 }
 
 generatorForm.addEventListener("submit", (e) => {
