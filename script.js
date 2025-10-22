@@ -130,3 +130,5 @@ generatorForm.addEventListener("submit", (e) => {
     passwordOutput.classList.remove("password-active");
   }
 });
+
+calculatePasswordStrength();
