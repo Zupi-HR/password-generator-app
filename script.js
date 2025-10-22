@@ -82,6 +82,10 @@ passwordLengthInput.addEventListener("input", () => {
   lengthDisplay.textContent = currentValue;
 });
 
+const formControls = [passwordLengthInput, ...checkboxes];
+formControls.forEach((control) => {
+  control.addEventListener("input", calculatePasswordStrength);
+});
 const STRENGTH_LEVELS = {
   strong: { score: 40, text: "STRONG", class: "strong" },
   medium: { score: 30, text: "MEDIUM", class: "medium" },
