@@ -37,35 +37,34 @@ function shuffleString(string) {
 
 function generatePassword() {
   let allowedChars = "";
-  let generatedPassword = "";
+  const passwordChars = [];
   const passwordLength = passwordLengthInput.valueAsNumber;
   const checkedCheckboxes = document.querySelectorAll(
     ".checkbox-input:checked"
   );
 
-  if (checkedCheckboxes.length > 0) {
-    checkedCheckboxes.forEach((checkbox) => {
-      allowedChars += CHAR_SETS[checkbox.name];
-      const randomIndex = Math.floor(
-        Math.random() * CHAR_SETS[checkbox.name].length
-      );
-      generatedPassword += CHAR_SETS[checkbox.name].at(randomIndex);
-    });
-  } else {
+  if (checkedCheckboxes.length === 0 || passwordLength === 0) {
     return "";
   }
 
-  if (generatedPassword.length > passwordLength) {
-    generatedPassword = generatedPassword.slice(0, passwordLength);
+  checkedCheckboxes.forEach((checkbox) => {
+    const charSet = CHAR_SETS[checkbox.name];
+    allowedChars += charSet;
+    const randomIndex = Math.floor(Math.random() * charSet.length);
+    passwordChars.push(charSet[randomIndex]);
+  });
+
+  if (passwordChars.length > passwordLength) {
+    return shuffleString(passwordChars.join("")).slice(0, passwordLength);
   }
 
-  const remainingLength = passwordLength - generatedPassword.length;
+  const remainingLength = passwordLength - passwordChars.length;
   for (let index = 0; index < remainingLength; index++) {
     const randomIndex = Math.floor(Math.random() * allowedChars.length);
-    generatedPassword += allowedChars[randomIndex];
+    passwordChars.push(allowedChars[randomIndex]);
   }
-  const shuffledPassword = shuffleString(generatedPassword);
-  return shuffledPassword;
+
+  return shuffleString(passwordChars.join(""));
 }
 
 generatorForm.addEventListener("submit", (e) => {
