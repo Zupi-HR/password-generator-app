@@ -67,7 +67,28 @@ function generatePassword() {
   return shuffleString(passwordChars.join(""));
 }
 
+copyButton.addEventListener("click", async () => {
+  const password = passwordOutput.textContent;
+  if (!password || password === "P4$5W0rD!") {
+    return;
+  }
+  await navigator.clipboard.writeText(password);
+  copyMessage.classList.add("show");
+  setTimeout(() => copyMessage.classList.remove("show"), 2000);
+});
+
+passwordLengthInput.addEventListener("input", () => {
+  const currentValue = passwordLengthInput.value;
+  lengthDisplay.textContent = currentValue;
+});
+
 generatorForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  generatePassword();
+  const generatedPassword = generatePassword();
+  passwordOutput.textContent = generatedPassword;
+  if (generatedPassword) {
+    passwordOutput.classList.add("password-active");
+  } else {
+    passwordOutput.classList.remove("password-active");
+  }
 });

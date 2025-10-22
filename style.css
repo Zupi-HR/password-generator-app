@@ -179,6 +179,10 @@ body {
     color: var(--color-grey-700);
 }
 
+#password-output.password-active {
+    color: var(--color-grey-200);
+}
+
 .copy-wrapper {
     display: flex;
     align-items: center;
@@ -190,6 +194,10 @@ body {
     font-weight: var(--font-weight-bold);
     opacity: 0;
     transition: opacity 150ms ease-in-out;
+}
+
+.copy-msg.show {
+    opacity: 1;
 }
 
 .copy-btn {
