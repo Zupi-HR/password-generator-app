@@ -82,12 +82,35 @@ passwordLengthInput.addEventListener("input", () => {
   lengthDisplay.textContent = currentValue;
 });
 
+function calculatePasswordStrength() {
+  const lengthScore = passwordLengthInput.valueAsNumber * 2;
+  const complexityScore =
+    document.querySelectorAll(".checkbox-input:checked").length || 0;
+  const totalScore = lengthScore + complexityScore;
+  strengthBars.className = "strength-bars";
+
+  if (totalScore > 42) {
+    strengthBars.classList.add("strong");
+    strengthText.textContent = "strong";
+  } else if (totalScore > 28) {
+    strengthBars.classList.add("medium");
+    strengthText.textContent = "medium";
+  } else if (totalScore > 14) {
+    strengthBars.classList.add("weak");
+    strengthText.textContent = "weak";
+  } else {
+    strengthBars.classList.add("too-weak");
+    strengthText.textContent = "Too Weak";
+  }
+}
+
 generatorForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const generatedPassword = generatePassword();
   passwordOutput.textContent = generatedPassword;
   if (generatedPassword) {
     passwordOutput.classList.add("password-active");
+    calculatePasswordStrength();
   } else {
     passwordOutput.classList.remove("password-active");
   }
