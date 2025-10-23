@@ -164,6 +164,7 @@ body {
     display: grid;
     gap: var(--spacing-200);
     background-color: inherit;
+    max-width: 540px;
 }
 
 .password-display {
@@ -180,6 +181,7 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    min-width: 0;
 }
 
 #password-output.password-active {
@@ -195,12 +197,14 @@ body {
 .copy-msg {
     color: var(--color-green-200);
     font-weight: var(--font-weight-bold);
+    width: 0;
     opacity: 0;
-    transition: opacity 150ms ease-in-out;
+    transition: opacity 150ms ease-in-out, width 150ms ease-in-out;
 }
 
 .copy-msg.show {
     opacity: 1;
+    width: auto;
 }
 
 .copy-btn {
