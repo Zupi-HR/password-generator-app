@@ -164,7 +164,6 @@ body {
     display: grid;
     gap: var(--spacing-200);
     background-color: inherit;
-    max-width: 540px;
 }
 
 .password-display {
@@ -176,7 +175,7 @@ body {
 }
 
 #password-output {
-    font-size: var(--fs-heading-m);
+    font-size: clamp(var(--fs-body-m), 4vw, var(--fs-heading-m));
     color: var(--color-grey-700);
     white-space: nowrap;
     overflow: hidden;
