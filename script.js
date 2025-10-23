@@ -99,7 +99,7 @@ function calculatePasswordStrength() {
     ".checkbox-input:checked"
   ).length;
 
-  const totalScore = passwordLength * 2 + includedSetsCount;
+  const totalScore = passwordLength * 2 + includedSetsCount * 4;
   let currentStrength = STRENGTH_LEVELS["too-weak"];
 
   if (totalScore >= STRENGTH_LEVELS.strong.score) {
