@@ -177,6 +177,9 @@ body {
 #password-output {
     font-size: var(--fs-heading-m);
     color: var(--color-grey-700);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #password-output.password-active {
@@ -204,7 +207,12 @@ body {
     background-color: inherit;
     border: none;
     cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 
 .generator-options {
     display: grid;
