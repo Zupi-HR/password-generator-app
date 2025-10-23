@@ -131,4 +131,5 @@ generatorForm.addEventListener("submit", (e) => {
   }
 });
 
+lengthDisplay.textContent = passwordLengthInput.value;
 calculatePasswordStrength();
