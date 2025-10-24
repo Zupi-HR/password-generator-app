@@ -175,8 +175,12 @@ body {
 }
 
 #password-output {
-    font-size: var(--fs-heading-m);
+    font-size: clamp(var(--fs-body-m), 4vw, var(--fs-heading-m));
     color: var(--color-grey-700);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
 }
 
 #password-output.password-active {
@@ -192,19 +196,36 @@ body {
 .copy-msg {
     color: var(--color-green-200);
     font-weight: var(--font-weight-bold);
+    width: 0;
     opacity: 0;
-    transition: opacity 150ms ease-in-out;
+    transition: opacity 150ms ease-in-out, width 150ms ease-in-out;
 }
 
 .copy-msg.show {
     opacity: 1;
+    width: auto;
 }
 
 .copy-btn {
     background-color: inherit;
     border: none;
     cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
+
+.copy-btn:hover img {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+}
+
+.copy-btn:focus-visible {
+    outline: 2px solid var(--color-green-200);
+    outline-offset: 2px;
+}
+
 
 .generator-options {
     display: grid;
