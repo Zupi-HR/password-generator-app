@@ -35,6 +35,17 @@ function shuffleString(string) {
   return charArray.join("");
 }
 
+function updateSliderFill() {
+  const currentValue = passwordLengthInput.value;
+  lengthDisplay.textContent = currentValue;
+
+  const min = passwordLengthInput.min;
+  const max = passwordLengthInput.max;
+
+  const progress = ((+currentValue - min) / (max - min)) * 100;
+  passwordLengthInput.style.setProperty("--fill-percentage", `${progress}%`);
+}
+
 function generatePassword() {
   let allowedChars = "";
   const passwordChars = [];
@@ -77,10 +88,7 @@ copyButton.addEventListener("click", async () => {
   setTimeout(() => copyMessage.classList.remove("show"), 2000);
 });
 
-passwordLengthInput.addEventListener("input", () => {
-  const currentValue = passwordLengthInput.value;
-  lengthDisplay.textContent = currentValue;
-});
+passwordLengthInput.addEventListener("input", updateSliderFill);
 
 const formControls = [passwordLengthInput, ...checkboxes];
 formControls.forEach((control) => {
@@ -131,5 +139,5 @@ generatorForm.addEventListener("submit", (e) => {
   }
 });
 
-lengthDisplay.textContent = passwordLengthInput.value;
+updateSliderFill();
 calculatePasswordStrength();

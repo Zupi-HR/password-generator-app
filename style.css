@@ -231,6 +231,7 @@ body {
 }
 
 #passLength {
+    --fill-percentage: 50%;
     -webkit-appearance: none;
     appearance: none;
     background-color: transparent;
@@ -241,7 +242,7 @@ body {
 
 /* Chrome, Safari, Opera, and Edge */
 #passLength::-webkit-slider-runnable-track {
-    background: var(--color-green-200);
+    background: linear-gradient(to right, var(--color-green-200) var(--fill-percentage), var(--color-grey-950) var(--fill-percentage));
     height: var(--spacing-100);
 }
 
